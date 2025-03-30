@@ -6,6 +6,7 @@
 
 generator client {
   provider = "prisma-client-js"
+  output   = "../src/(generated)/prismaClient"
 }
 
 datasource db {
@@ -33,5 +34,7 @@ model Appointment {
   providerId Int
   Patient    Patient  @relation(fields: [patientId], references: [id])
   patientId  Int
-  timestamp  DateTime
+  title      String
+  start      DateTime
+  end        DateTime
 }
