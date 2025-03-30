@@ -1,13 +1,14 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Setup
+## Local dev setup
 
-1. Use node 22.x
-2. Open the directory and `npm install`
-3. (recommended): Use vscode. Open from the .workspace file, not from the directory. Install the recommended plugins. This gives nice things like
+1. (recommended): Use vscode. Open from the .workspace file, not from the directory. Install the recommended plugins. This gives nice things like
    - Format on save
    - Local eslint server
    - Non-relative imports when autocompleting (@/_ rather than ../../_, etc.)
+     Use node 22.x
+2. Open the directory and `npm install`
+3.
 4.
 
 ## Getting Started
