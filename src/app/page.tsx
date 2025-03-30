@@ -12,6 +12,8 @@ const prisma = new PrismaClient();
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
+  // would probably rather do this fetch in AppointmentCalendar.tsx
+  // but that has to be a client component for some reason?
   const logged_in_provider = await prisma.provider.findFirst({
     where: {
       id: PROVIDER_ID,
