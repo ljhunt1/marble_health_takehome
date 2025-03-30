@@ -12,3 +12,26 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Provider {
+  id           Int           @id @default(autoincrement())
+  firstName    String
+  lastName     String
+  appointments Appointment[]
+}
+
+model Patient {
+  id           Int           @id @default(autoincrement())
+  firstName    String
+  lastName     String
+  appointments Appointment[]
+}
+
+model Appointment {
+  id         Int      @id @default(autoincrement())
+  provider   Provider @relation(fields: [providerId], references: [id])
+  providerId Int
+  Patient    Patient  @relation(fields: [patientId], references: [id])
+  patientId  Int
+  timestamp  DateTime
+}
