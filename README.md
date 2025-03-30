@@ -6,24 +6,15 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
    - Format on save
    - Local eslint server
    - Non-relative imports when autocompleting (@/_ rather than ../../_, etc.)
-     Use node 22.x
-2. Open the directory and `npm install`
-3.
-4.
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Use node 22.x
+3. Open the directory and `npm install`
+4. Setup Postgres+Prisma
+   1. Have a postgresql server + database that you have admin access to. You probably want the server running locally, in which case install postgresql https://www.postgresql.org/ and setup a local server in e.g. pgAdmin
+   2. Update the DATABASE_URL in `.env` to connect to your postgres server + database
+   3. Run `npx prisma db push`. This sets up the database schema and generates the prisma javascript client in `src/(generated)/prismaClient`
+   4. Run `npx prisma db seed`. This pushes seed data to your database
+5. In page.tsx, set `const PROVIDER_ID` to the provider you want to be logged in as
+6. `npm run dev` starts the app at [http://localhost:3000](http://localhost:3000)
 
 ## Learn More
 
