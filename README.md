@@ -16,6 +16,11 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 5. In page.tsx, set `const PROVIDER_ID` to the provider you want to be logged in as
 6. `npm run dev` starts the app at [http://localhost:3000](http://localhost:3000)
 
+## Thoughts on this work
+
+- Probably the AppointmentCreation should appear in response to Calendar.OnSelectSlot or something? I thought there would be a way for the `<Calendar>` to emit a created Event object or something but there appears not to be?
+- Not sure I like how the data model doesn't scope patients to their providers. Probably not great how a provider can see all patients globally? A better idea might be: patients are scoped to providers (potentially with dupes), appointment creation shows providers a dropdown of their patients with patient names in the dropdown
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
