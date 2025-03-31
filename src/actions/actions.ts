@@ -4,7 +4,7 @@ import { PrismaClient } from "@/(generated)/prismaClient";
 
 export const createAppointment = async (args: {
   providerId: number;
-  patientId: number;
+  patientIds: number[];
   title: string;
   start: Date;
   end: Date;
@@ -13,7 +13,17 @@ export const createAppointment = async (args: {
   await prisma.appointment.create({
     data: {
       providerId: args.providerId,
-      patientId: args.patientId,
+      patients: {
+        create: args.patientIds.map((id) => {
+          return {
+            patient: {
+              connect: {
+                id: id,
+              },
+            },
+          };
+        }),
+      },
       title: args.title,
       start: args.start,
       end: args.end,

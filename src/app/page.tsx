@@ -24,6 +24,7 @@ export default async function Home() {
       providerId: PROVIDER_ID,
     },
   });
+  const allPatients = await prisma.patient.findMany();
 
   // would rather map Appointment -> Event inside AppointmentCalendar.tsx
   // but not sure how to get a good Appointment type from Prisma
@@ -48,7 +49,10 @@ export default async function Home() {
       </div>
 
       <AppointmentCalendar events={events} />
-      <AppointmentCreationForm providerId={PROVIDER_ID} />
+      <AppointmentCreationForm
+        providerId={PROVIDER_ID}
+        patients={allPatients}
+      />
     </>
   );
 }
